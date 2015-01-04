@@ -7,7 +7,11 @@
 (function($) {
 	var modules = {
 		parser: {
-			js: 'nv.parser.js'
+			js: 'nv.parser.js',
+			dependencies: ['splitpane']
+		},
+		splitpane: {
+			js: 'nv.splitpane.js'
 		}
 	};
 
