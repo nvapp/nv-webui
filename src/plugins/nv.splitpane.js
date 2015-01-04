@@ -35,15 +35,15 @@
 		var left = cc.children().eq(0);
 		var right = cc.children().eq(1);
 		var sizeRegion = data["sizeRegion"];
-		var initValue = parseInt(data[""] || '200');
+		var sizeValue = parseInt(data["sizeValue"] || '200');
 		switch (sizeRegion) {
 			case 'left':
 				left.css({
 					float: 'left'
 				});
-				left.width(initValue);
+				left.width(sizeValue);
 				right.css({
-					marginLeft: initValue + 'px'
+					marginLeft: sizeValue + 'px'
 				});
 				break;
 			case 'right':
@@ -51,9 +51,9 @@
 				right.css({
 					float: 'right'
 				});
-				right.width(initValue);
+				right.width(sizeValue);
 				left.css({
-					marginRight: initValue + 'px'
+					marginRight: sizeValue + 'px'
 				});
 				break;
 		}
