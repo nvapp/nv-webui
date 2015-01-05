@@ -1,7 +1,7 @@
 /**
- * ztreeWrapper - NvUI
+ * splitPane - NvUI
  *
- * Copyright(c) 2015 lexloo [ lexloo@nv-app.com ]
+ * Copyright(c) 2014 lexloo [ lexloo@nv-app.com ]
  *
  */
 
@@ -21,17 +21,53 @@
 	function init(container) {
 		var cc = $(container);
 
+		cc.css({
+			margin: 0,
+			padding: 0,
+			height: '100%',
+			width: '100%'
+		});
+
+		var data = parseData(cc.attr('data') || '');
+		cc.data('data', data);
+
+		cc.children().height('100%');
+		var left = cc.children().eq(0);
+		var right = cc.children().eq(1);
+		var sizeRegion = data["sizeRegion"];
+		var sizeValue = parseInt(data["sizeValue"] || '200');
+		switch (sizeRegion) {
+			case 'left':
+				left.css({
+					float: 'left'
+				});
+				left.width(sizeValue);
+				right.css({
+					marginLeft: sizeValue + 'px'
+				});
+				break;
+			case 'right':
+				right.insertBefore(left);
+				right.css({
+					float: 'right'
+				});
+				right.width(sizeValue);
+				left.css({
+					marginRight: sizeValue + 'px'
+				});
+				break;
+		}
 	};
 
-	$.fn.ztreeWrapper = function(options, param) {
+	$.fn.splitpane = function(options, param) {
 		if (typeof options == 'string') {
-			return $.fn.ztreeWrapper.methods[options](this, param);
+			return $.fn.splitpane.methods[options](this, param);
 		}
 
 		init(this);
 	};
 
-	$.fn.ztreeWrapper.methods = {
+	$.fn.splitpane.methods = {
 
 	};
 })(jQuery);
