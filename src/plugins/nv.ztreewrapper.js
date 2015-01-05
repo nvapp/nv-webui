@@ -1,5 +1,5 @@
 /**
- * ztreeWrapper - NvUI
+ * zTree - NvUI
  *
  * Copyright(c) 2015 lexloo [ lexloo@nv-app.com ]
  *
@@ -20,18 +20,17 @@
 
 	function init(container) {
 		var cc = $(container);
-
 	};
 
-	$.fn.ztreeWrapper = function(options, param) {
+	$.fn.ztree = function(options, param) {
 		if (typeof options == 'string') {
-			return $.fn.ztreeWrapper.methods[options](this, param);
+			return $.fn.ztree.methods[options](this, param);
 		}
 
 		init(this);
 	};
 
-	$.fn.ztreeWrapper.methods = {
+	$.fn.ztree.methods = {
 
 	};
 })(jQuery);

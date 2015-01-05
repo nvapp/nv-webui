@@ -8,10 +8,13 @@
 	var modules = {
 		parser: {
 			js: 'nv.parser.js',
-			dependencies: ['splitpane']
+			dependencies: ['splitpane', 'ztreewrapper']
 		},
 		splitpane: {
 			js: 'nv.splitpane.js'
+		},
+		ztreeWrapper: {
+			js: 'nv.ztreewrapper.js'
 		}
 	};
 
