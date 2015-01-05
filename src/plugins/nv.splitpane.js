@@ -6,9 +6,10 @@
  */
 
 (function($) {
-	function parseData(data) {
+	function parseData() {
 		var r = {};
-
+		var data = cc.attr('data') || '';
+		
 		$.each(data.split(";"), function() {
 			var item = this.split(":");
 
@@ -28,7 +29,7 @@
 			width: '100%'
 		});
 
-		var data = parseData(cc.attr('data') || '');
+		var data = parseData();
 		cc.data('data', data);
 
 		cc.children().height('100%');

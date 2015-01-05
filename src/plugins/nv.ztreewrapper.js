@@ -1,14 +1,15 @@
 /**
- * zTree - NvUI
+ * ztreeWrapper - NvUI
  *
  * Copyright(c) 2015 lexloo [ lexloo@nv-app.com ]
  *
  */
 
 (function($) {
-	function parseData(data) {
+	function parseData() {
 		var r = {};
-
+		var data = cc.attr('data') || '';
+		
 		$.each(data.split(";"), function() {
 			var item = this.split(":");
 
@@ -22,8 +23,8 @@
 		var cc = $(container);
 
 		cc.addClass("ztree");
-		var treeId = options['treeId'];
-		var url = $.contextPath() + 'service?_service_=cfg_data_ztree&code=' + treeId;
+		var data = parseData();
+		var url = $.contextPath() + data["url"];
 		var setting = {
 			check: {
 				enable: true,
@@ -39,8 +40,8 @@
 			},
 			callback: {
 				onAsyncSuccess: function(event, treeId, treeNode, msg) {
-					var treeObj = $.fn.zTree.getZTreeObj($this.attr('id'));
-					treeObj.expandAll(true);
+					/*var treeObj = $.fn.zTree.getZTreeObj($this.attr('id'));*/
+					/*treeObj.expandAll(true);*/
 				}
 			},
 			data: {
@@ -55,15 +56,15 @@
 		$.fn.zTree.init(cc, setting, null);
 	};
 
-	$.fn.ztree = function(options, param) {
+	$.fn.ztreewrapper = function(options, param) {
 		if (typeof options == 'string') {
-			return $.fn.ztree.methods[options](this, param);
+			return $.fn.ztreewrapper.methods[options](this, param);
 		}
 
 		init(this);
 	};
 
-	$.fn.ztree.methods = {
+	$.fn.ztreewrapper.methods = {
 
 	};
 })(jQuery);
