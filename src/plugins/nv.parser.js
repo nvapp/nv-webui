@@ -9,7 +9,7 @@
 	$.parser = {
 		auto: true,
 		onComplete: function(context) {},
-		plugins: ['splitpane'],
+		plugins: ['input', "layout", 'splitpane', 'ztreewrapper', 'listpane'],
 		parse: function(context) {
 			var aa = [];
 			for (var i = 0; i < $.parser.plugins.length; i++) {
